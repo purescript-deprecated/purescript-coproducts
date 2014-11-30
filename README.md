@@ -4,7 +4,7 @@
 
 ### Types
 
-    data Coproduct f g a where
+    newtype Coproduct f g a where
       Coproduct :: Either (f a) (g a) -> Coproduct f g a
 
 

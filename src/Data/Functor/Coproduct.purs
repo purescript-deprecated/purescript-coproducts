@@ -4,7 +4,7 @@ import Data.Either
 import Data.Foldable
 import Data.Traversable
 
-data Coproduct f g a = Coproduct (Either (f a) (g a))
+newtype Coproduct f g a = Coproduct (Either (f a) (g a))
 
 runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
 runCoproduct (Coproduct x) = x
