@@ -2,27 +2,58 @@
 
 ## Module Data.Functor.Coproduct
 
-### Types
+#### `Coproduct`
 
-    newtype Coproduct f g a where
-      Coproduct :: Either (f a) (g a) -> Coproduct f g a
-
-
-### Type Class Instances
-
-    instance foldableCoproduct :: (Foldable f, Foldable g) => Foldable (Coproduct f g)
-
-    instance functorCoproduct :: (Functor f, Functor g) => Functor (Coproduct f g)
-
-    instance traversableCoproduct :: (Traversable f, Traversable g) => Traversable (Coproduct f g)
+``` purescript
+newtype Coproduct f g a
+  = Coproduct (Either (f a) (g a))
+```
 
 
-### Values
+#### `runCoproduct`
 
-    coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
+``` purescript
+runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
+```
 
-    left :: forall f g a. f a -> Coproduct f g a
 
-    right :: forall f g a. g a -> Coproduct f g a
+#### `left`
 
-    runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
+``` purescript
+left :: forall f g a. f a -> Coproduct f g a
+```
+
+
+#### `right`
+
+``` purescript
+right :: forall f g a. g a -> Coproduct f g a
+```
+
+
+#### `coproduct`
+
+``` purescript
+coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
+```
+
+
+#### `functorCoproduct`
+
+``` purescript
+instance functorCoproduct :: (Functor f, Functor g) => Functor (Coproduct f g)
+```
+
+
+#### `foldableCoproduct`
+
+``` purescript
+instance foldableCoproduct :: (Foldable f, Foldable g) => Foldable (Coproduct f g)
+```
+
+
+#### `traversableCoproduct`
+
+``` purescript
+instance traversableCoproduct :: (Traversable f, Traversable g) => Traversable (Coproduct f g)
+```
