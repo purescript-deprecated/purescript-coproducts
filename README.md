@@ -2,6 +2,9 @@
 
 ## Module Data.Functor.Coproduct
 
+
+Functor coproducts
+
 #### `Coproduct`
 
 ``` purescript
@@ -9,6 +12,7 @@ newtype Coproduct f g a
   = Coproduct (Either (f a) (g a))
 ```
 
+`Coproduct f g` is the coproduct of two functors `f` and `g`
 
 #### `runCoproduct`
 
@@ -16,6 +20,7 @@ newtype Coproduct f g a
 runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
 ```
 
+Unwrap a coproduct
 
 #### `left`
 
@@ -23,6 +28,7 @@ runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
 left :: forall f g a. f a -> Coproduct f g a
 ```
 
+Left injection
 
 #### `right`
 
@@ -30,6 +36,7 @@ left :: forall f g a. f a -> Coproduct f g a
 right :: forall f g a. g a -> Coproduct f g a
 ```
 
+Right injection
 
 #### `coproduct`
 
@@ -37,6 +44,8 @@ right :: forall f g a. g a -> Coproduct f g a
 coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
 ```
 
+Eliminate a coproduct by providing eliminators for the left and
+right components
 
 #### `functorCoproduct`
 

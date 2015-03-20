@@ -1,20 +1,28 @@
+-- | Functor coproducts
+
 module Data.Functor.Coproduct where
 
 import Data.Either
 import Data.Foldable
 import Data.Traversable
 
+-- | `Coproduct f g` is the coproduct of two functors `f` and `g`
 newtype Coproduct f g a = Coproduct (Either (f a) (g a))
 
+-- | Unwrap a coproduct
 runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
 runCoproduct (Coproduct x) = x
 
+-- | Left injection
 left :: forall f g a. f a -> Coproduct f g a
 left = Coproduct <<< Left
 
+-- | Right injection
 right :: forall f g a. g a -> Coproduct f g a
 right = Coproduct <<< Right
 
+-- | Eliminate a coproduct by providing eliminators for the left and
+-- | right components
 coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
 coproduct f g = either f g <<< runCoproduct
 
