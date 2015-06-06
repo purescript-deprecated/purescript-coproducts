@@ -2,6 +2,8 @@
 
 module Data.Functor.Coproduct where
 
+import Prelude
+
 import Data.Either
 import Data.Foldable
 import Data.Traversable
@@ -27,7 +29,7 @@ coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
 coproduct f g = either f g <<< runCoproduct
 
 instance functorCoproduct :: (Functor f, Functor g) => Functor (Coproduct f g) where
-  (<$>) f = Coproduct <<< coproduct (Left <<< (<$>) f) (Right <<< (<$>) f)
+  map f = Coproduct <<< coproduct (Left <<< (<$>) f) (Right <<< (<$>) f)
 
 instance foldableCoproduct :: (Foldable f, Foldable g) => Foldable (Coproduct f g) where
   foldr f z = coproduct (foldr f z) (foldr f z)
