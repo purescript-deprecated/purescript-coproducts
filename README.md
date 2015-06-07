@@ -1,68 +1,15 @@
-# Module Documentation
+# purescript-coproducts
 
-## Module Data.Functor.Coproduct
+[![Build Status](https://travis-ci.org/purescript/purescript-coproducts.svg?branch=master)](https://travis-ci.org/purescript/purescript-coproducts)
 
+Functor coproducts.
 
-Functor coproducts
+## Installation
 
-#### `Coproduct`
-
-``` purescript
-newtype Coproduct f g a
-  = Coproduct (Either (f a) (g a))
+```
+bower install purescript-coproducts
 ```
 
-`Coproduct f g` is the coproduct of two functors `f` and `g`
+## Module documentation
 
-#### `runCoproduct`
-
-``` purescript
-runCoproduct :: forall f g a. Coproduct f g a -> Either (f a) (g a)
-```
-
-Unwrap a coproduct
-
-#### `left`
-
-``` purescript
-left :: forall f g a. f a -> Coproduct f g a
-```
-
-Left injection
-
-#### `right`
-
-``` purescript
-right :: forall f g a. g a -> Coproduct f g a
-```
-
-Right injection
-
-#### `coproduct`
-
-``` purescript
-coproduct :: forall f g a b. (f a -> b) -> (g a -> b) -> Coproduct f g a -> b
-```
-
-Eliminate a coproduct by providing eliminators for the left and
-right components
-
-#### `functorCoproduct`
-
-``` purescript
-instance functorCoproduct :: (Functor f, Functor g) => Functor (Coproduct f g)
-```
-
-
-#### `foldableCoproduct`
-
-``` purescript
-instance foldableCoproduct :: (Foldable f, Foldable g) => Foldable (Coproduct f g)
-```
-
-
-#### `traversableCoproduct`
-
-``` purescript
-instance traversableCoproduct :: (Traversable f, Traversable g) => Traversable (Coproduct f g)
-```
+- [Data.Functor.Coproduct](docs/Data.Functor.Coproduct.md)
