@@ -13,9 +13,9 @@ newtype Coproduct f g a
 
 ##### Instances
 ``` purescript
-instance functorCoproduct :: (Functor f, Functor g) => Functor (Coproduct f g)
-instance foldableCoproduct :: (Foldable f, Foldable g) => Foldable (Coproduct f g)
-instance traversableCoproduct :: (Traversable f, Traversable g) => Traversable (Coproduct f g)
+(Functor f, Functor g) => Functor (Coproduct f g)
+(Foldable f, Foldable g) => Foldable (Coproduct f g)
+(Traversable f, Traversable g) => Traversable (Coproduct f g)
 ```
 
 #### `runCoproduct`
