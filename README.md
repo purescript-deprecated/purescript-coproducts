@@ -1,17 +1,5 @@
-# purescript-coproducts
+# DEPRECATED
 
-[![Latest release](http://img.shields.io/bower/v/purescript-coproducts.svg)](https://github.com/purescript/purescript-coproducts/releases)
-[![Build Status](https://travis-ci.org/purescript/purescript-coproducts.svg?branch=master)](https://travis-ci.org/purescript/purescript-coproducts)
-[![Dependency Status](https://www.versioneye.com/user/projects/55848c86363861001b00019d/badge.svg?style=flat)](https://www.versioneye.com/user/projects/55848c86363861001b00019d)
+The library is no longer maintained under this repository, it has moved to [`purescript-functor-coproducts`](https://github.com/purescript/purescript-functor-coproducts).
 
-Functor coproducts.
-
-## Installation
-
-```
-bower install purescript-coproducts
-```
-
-## Module documentation
-
-- [Data.Functor.Coproduct](docs/Data/Functor/Coproduct.md)
+The most recent [v0.4.1 release](https://github.com/purescript/purescript-coproducts/releases/tag/v0.4.1) will continue to work for older libraries that still depend on it, although is incompatible with PureScript 0.9 and newer.
